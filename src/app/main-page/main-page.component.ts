@@ -73,12 +73,14 @@ export class MainPageComponent implements OnInit {
     if (this.result_q10 === '1/3 коронки') {
       this.answer10 = 'У вас окрасилось 1/3 коронки зуба - это значит, что поводов для беспокойств нет.'
     }
-    else if (this.answer10 = 'Так как у вас уже окрасилось 2/3 коронки зуба, настоятельно рекомендуем сходить на плановую консультацию к врачу.') {
-      this.answer10 = ''
+    if (this.result_q10 === '2/3 коронки') {
+      this.answer10 = 'Так как у вас уже окрасилось 2/3 коронки зуба, настоятельно рекомендуем сходить на плановую консультацию к врачу.'
     }
-    else {
-      this.answer10 = ''
+    if (this.result_q10 === 'Не окрасилось вообще') {
+      this.answer10 = 'Это отлично! С вашим зубом все отлично.'
     }
+
+    console.log(this.answer10)
   }
 
   clearQ10(): void {
@@ -89,6 +91,7 @@ export class MainPageComponent implements OnInit {
     if (this.isCurrentQuestionValid()) {
       this.currentQuestionIndex++;
     }
+    console.log(this.answer10)
   }
 
   isCurrentQuestionValid(): boolean {

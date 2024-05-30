@@ -33,13 +33,19 @@
     </div>
 
     <div *ngIf="currentQuestionIndex === 4" class="question">
-      <label for="q5">5. Последний год вы посещали стоматолога?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q5' + option" name="q5" [value]="option" [(ngModel)]="q5" required>
-          <label [for]="'q5' + option">{{option}}</label>
-        </div>
-      </ng-container>
+      <div class="stomatolog-img">
+        <img src="assets/img/stomatolog.png" alt="stomatolog-1" width="300px" height="300px">
+      </div>
+
+      <div>
+        <label for="q5">5. Последний год вы посещали стоматолога?</label>
+        <ng-container *ngFor="let option of ['Да', 'Нет']">
+          <div>
+            <input type="radio" [id]="'q5' + option" name="q5" [value]="option" [(ngModel)]="q5" required>
+            <label [for]="'q5' + option">{{option}}</label>
+          </div>
+        </ng-container>
+      </div>
     </div>
 
     <div *ngIf="currentQuestionIndex === 5" class="question">
@@ -63,13 +69,20 @@
     </div>
 
     <div *ngIf="currentQuestionIndex === 7" class="question">
-      <label>8. Использовали ли вы индикатор налета?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q8' + option" name="q8" [value]="option" [(ngModel)]="q8" required>
-          <label [for]="'q8' + option">{{option}}</label>
-        </div>
-      </ng-container>
+      <div class="nalet-img">
+        <img src="assets/img/nalet-1.jpg" alt="nalet-1" width="300px" height="300px">
+        <img src="assets/img/nalet-2.jpg" alt="nalet-2" width="300px" height="300px">
+      </div>
+
+      <div>
+        <label>8. Использовали ли вы индикатор налета?</label>
+        <ng-container *ngFor="let option of ['Да', 'Нет']">
+          <div>
+            <input type="radio" [id]="'q8' + option" name="q8" [value]="option" [(ngModel)]="q8" required>
+            <label [for]="'q8' + option">{{option}}</label>
+          </div>
+        </ng-container>
+      </div>
     </div>
 
     <div *ngIf="currentQuestionIndex === 8 && !result" class="question">
@@ -84,8 +97,8 @@
     </div>
 
     <div *ngIf="currentQuestionIndex === 9 && q9 === 'Нет' && !result" class="question">
-      <label>10. Окрасилась 1/3 коронки зуба или 2/3 коронки зуба?</label>
-      <ng-container *ngFor="let option of ['1/3 коронки', '2/3 коронки']">
+      <label>10. Какая часть от коронки зуба у вас окрасилась?</label>
+      <ng-container *ngFor="let option of ['1/3 коронки', '2/3 коронки', 'Не окрасилось вообще']">
         <div>
           <input type="radio" [id]="'q10' + option" name="q10" [value]="option" [(ngModel)]="q10" required>
           <label [for]="'q10' + option">{{option}}</label>
