@@ -86,13 +86,40 @@ export class MainPageComponent implements OnInit {
   }
 
   nextQuestion(): void {
-    if (this.currentQuestionIndex < 9) {
+    if (this.isCurrentQuestionValid()) {
       this.currentQuestionIndex++;
     }
   }
 
+  isCurrentQuestionValid(): boolean {
+    switch (this.currentQuestionIndex) {
+      case 0:
+        return this.q1.trim() !== '';
+      case 1:
+        return this.q2.trim() !== '';
+      case 2:
+        return this.q3.trim() !== '';
+      case 3:
+        return this.q4.trim() !== '';
+      case 4:
+        return this.q5.trim() !== '';
+      case 5:
+        return this.q6.trim() !== '';
+      case 6:
+        return this.q7.trim() !== '';
+      case 7:
+        return this.q8.trim() !== '';
+      case 8:
+        return this.q9.trim() !== '';
+      case 9:
+        return this.q10.trim() !== '';
+      default:
+        return false;
+    }
+  }
+
   onKeydown(event: KeyboardEvent): void {
-    if (event.key === 'Enter' && this.currentQuestionIndex < 8) {
+    if (event.key === 'Enter' && this.currentQuestionIndex < 9) {
       event.preventDefault();
       this.nextQuestion();
     }
