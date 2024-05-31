@@ -1,128 +1,173 @@
 <div class="container">
-  <h1>Онлайн тест для оценки риска развития кариеса</h1>
-  <form (ngSubmit)="onSubmit()" #quizForm="ngForm" id="quiz-form" (keydown)="onKeydown($event)">
+  <h1 class="title">Онлайн тест для оценки риска развития кариеса</h1>
+  <form (ngSubmit)="onSubmit()" #quizForm="ngForm" id="quiz-form" (keydown)="onKeydown($event)" class="form">
 
-    <div *ngIf="currentQuestionIndex === 0" class="question">
-      <label for="q1">1. Введите ваше имя</label>
-      <input type="text" id="q1" name="q1" [(ngModel)]="q1" required>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 1" class="question">
-      <label for="q2">2. Введите ваш возраст</label>
-      <input type="text" id="q2" name="q2" [(ngModel)]="q2" required>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 2" class="question">
-      <label for="q3">3. Выберите ваш пол</label>
-      <ng-container *ngFor="let option of ['Мужской', 'Женский']">
-        <div>
-          <input type="radio" [id]="'q3' + option" name="q3" [value]="option" [(ngModel)]="q3" required>
-          <label [for]="'q3' + option">{{option}}</label>
+    <div class="flex-box">
+      <div>
+        <div *ngIf="currentQuestionIndex === 0" class="question">
+          <div style="width: 300px; height: 490px;"></div>
+          <label for="q1">1. Введите ваше имя</label>
+          <input type="text" class="input-text" id="q1" name="q1" [(ngModel)]="q1" required>
         </div>
-      </ng-container>
-    </div>
 
-    <div *ngIf="currentQuestionIndex === 3" class="question">
-      <label>4. Есть ли у вас заболевание ЖКТ?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q4' + option" name="q4" [value]="option" [(ngModel)]="q4" required>
-          <label [for]="'q4' + option">{{option}}</label>
+        <div *ngIf="currentQuestionIndex === 1" class="question">
+          <div style="width: 300px; height: 490px;"></div>
+          <label for="q2">2. Введите ваш возраст</label>
+          <input type="text" class="input-text" id="q2" name="q2" [(ngModel)]="q2" required>
         </div>
-      </ng-container>
-    </div>
 
-    <div *ngIf="currentQuestionIndex === 4" class="question">
-      <div class="stomatolog-img">
-        <img src="assets/img/stomatolog.png" alt="stomatolog-1" width="300px" height="300px">
+        <div *ngIf="currentQuestionIndex === 2" class="question">
+          <div style="width: 300px; height: 490px;"></div>
+          <label for="q3">3. Выберите ваш пол</label>
+          <ng-container *ngFor="let option of ['Мужской', 'Женский']">
+            <div>
+              <input type="radio" [id]="'q3' + option" name="q3" [value]="option" [(ngModel)]="q3" required>
+              <label [for]="'q3' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 3" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/jct.png" alt="jct" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <label>4. Есть ли у вас заболевание ЖКТ?</label>
+          <ng-container *ngFor="let option of ['Да', 'Нет']">
+            <div>
+              <input type="radio" [id]="'q4' + option" name="q4" [value]="option" [(ngModel)]="q4" required>
+              <label [for]="'q4' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 4" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/stomatolog.png" alt="stomatolog-1" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <div>
+            <label for="q5">5. Последний год вы посещали стоматолога?</label>
+            <ng-container *ngFor="let option of ['Да', 'Нет']">
+              <div>
+                <input type="radio" [id]="'q5' + option" name="q5" [value]="option" [(ngModel)]="q5" required>
+                <label [for]="'q5' + option">{{option}}</label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 5" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/chistka.png" alt="chistka" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <label>6. Была ли проф. чистка в прошлом году?</label>
+          <ng-container *ngFor="let option of ['Да', 'Нет']">
+            <div>
+              <input type="radio" [id]="'q6' + option" name="q6" [value]="option" [(ngModel)]="q6" required>
+              <label [for]="'q6' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 6" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/monopuchek.png" alt="monopuchek" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <label for="q7">7. Пользуетесь ли вы монопучком?</label>
+          <ng-container *ngFor="let option of ['Да', 'Нет']">
+            <div>
+              <input type="radio" [id]="'q7' + option" name="q7" [value]="option" [(ngModel)]="q7" required>
+              <label [for]="'q7' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 7" class="question">
+          <div class="nalet-img">
+            <img src="assets/img/nalet-1.jpg" alt="nalet-1" width="420px" height="420px">
+            <img src="assets/img/nalet-2.jpg" alt="nalet-2" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <div>
+            <label>8. Использовали ли вы индикатор налета?</label>
+            <ng-container *ngFor="let option of ['Да', 'Нет']">
+              <div>
+                <input type="radio" [id]="'q8' + option" name="q8" [value]="option" [(ngModel)]="q8" required>
+                <label [for]="'q8' + option">{{option}}</label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 8 && !result" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/zub2.png" alt="zub2" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <label>9. Окрасилась вся коронка зуба?</label>
+          <ng-container *ngFor="let option of ['Да', 'Нет']">
+            <div>
+              <input type="radio" [id]="'q9' + option" name="q9" [value]="option" [(ngModel)]="q9"
+                (ngModelChange)="clearQ10()" required>
+              <label [for]="'q9' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="currentQuestionIndex === 9 && q9 === 'Нет' && !result" class="question">
+          <div class="stomatolog-img">
+            <img src="assets/img/zub.png" alt="zub" width="420px" height="420px">
+          </div>
+          <div style="width: 300px; height: 70px;"></div>
+
+          <label>10. Какая часть от коронки зуба у вас окрасилась?</label>
+          <ng-container *ngFor="let option of ['1/3 коронки', '2/3 коронки', 'Не окрасилось вообще']">
+            <div>
+              <input type="radio" [id]="'q10' + option" name="q10" [value]="option" [(ngModel)]="q10" required>
+              <label [for]="'q10' + option">{{option}}</label>
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div>
-        <label for="q5">5. Последний год вы посещали стоматолога?</label>
-        <ng-container *ngFor="let option of ['Да', 'Нет']">
-          <div>
-            <input type="radio" [id]="'q5' + option" name="q5" [value]="option" [(ngModel)]="q5" required>
-            <label [for]="'q5' + option">{{option}}</label>
-          </div>
-        </ng-container>
+        <div style="width: 300px; height: 520px;" *ngIf="!result"></div>
+        <button type="button" class="next-button" *ngIf="currentQuestionIndex < 9 && q9 !== 'Да'"
+          (click)="nextQuestion()">Далее</button>
+        <button type="submit" class="next-button green-button"
+          [disabled]="currentQuestionIndex === 9 && q9 !== 'Да' && !q10"
+          *ngIf="(currentQuestionIndex === 9 && !result && q9 !== '') || (currentQuestionIndex === 8 && q9 === 'Да' && !result) ">Отправить</button>
+        <button type="button" *ngIf="!result" (click)="newQuiz()" class="button">Сбросить</button>
       </div>
     </div>
-
-    <div *ngIf="currentQuestionIndex === 5" class="question">
-      <label>6. Была ли проф. чистка в прошлом году?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q6' + option" name="q6" [value]="option" [(ngModel)]="q6" required>
-          <label [for]="'q6' + option">{{option}}</label>
-        </div>
-      </ng-container>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 6" class="question">
-      <label for="q7">7. Пользуетесь ли вы монопучком?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q7' + option" name="q7" [value]="option" [(ngModel)]="q7" required>
-          <label [for]="'q7' + option">{{option}}</label>
-        </div>
-      </ng-container>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 7" class="question">
-      <div class="nalet-img">
-        <img src="assets/img/nalet-1.jpg" alt="nalet-1" width="300px" height="300px">
-        <img src="assets/img/nalet-2.jpg" alt="nalet-2" width="300px" height="300px">
-      </div>
-
-      <div>
-        <label>8. Использовали ли вы индикатор налета?</label>
-        <ng-container *ngFor="let option of ['Да', 'Нет']">
-          <div>
-            <input type="radio" [id]="'q8' + option" name="q8" [value]="option" [(ngModel)]="q8" required>
-            <label [for]="'q8' + option">{{option}}</label>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 8 && !result" class="question">
-      <label>9. Окрасилась вся коронка зуба?</label>
-      <ng-container *ngFor="let option of ['Да', 'Нет']">
-        <div>
-          <input type="radio" [id]="'q9' + option" name="q9" [value]="option" [(ngModel)]="q9"
-            (ngModelChange)="clearQ10()" required>
-          <label [for]="'q9' + option">{{option}}</label>
-        </div>
-      </ng-container>
-    </div>
-
-    <div *ngIf="currentQuestionIndex === 9 && q9 === 'Нет' && !result" class="question">
-      <label>10. Какая часть от коронки зуба у вас окрасилась?</label>
-      <ng-container *ngFor="let option of ['1/3 коронки', '2/3 коронки', 'Не окрасилось вообще']">
-        <div>
-          <input type="radio" [id]="'q10' + option" name="q10" [value]="option" [(ngModel)]="q10" required>
-          <label [for]="'q10' + option">{{option}}</label>
-        </div>
-      </ng-container>
-    </div>
-
-    <button type="button" *ngIf="currentQuestionIndex < 9 && q9 !== 'Да'" (click)="nextQuestion()">Далее</button>
-    <button type="submit"
-      *ngIf="(currentQuestionIndex === 9 && !result && q9 !== '') || (currentQuestionIndex === 8 && q9 === 'Да' && !result) ">Отправить</button>
 
     <div *ngIf="result">
       <h1>Тест завершен!</h1>
       <h2>{{result_q1}}, спасибо за прохождение теста. Вот несколько рекомендаций, чтобы помочь вам проследить за вашим
         здоровьем:</h2>
-      <p>{{ answer5 }}</p>
-      <p>{{ answer6 }}</p>
-      <p>{{ answer7 }}</p>
-      <p>{{ answer8 }}</p>
-      <p>{{ answer9 }}</p>
-      <p>{{ answer10 }}</p>
+
+      <p>1. {{ result_q1 }}</p>
+      <p>2. {{ result_q2 }}</p>
+      <p>3. {{ result_q3 }}</p>
+      <p>4. {{ answer4 }}</p>
+      <p>5. {{ answer5 }}</p>
+      <p>6. {{ answer6 }}</p>
+      <p>7. {{ answer7 }}</p>
+      <p>8. {{ answer8 }}</p>
+      <p>9. {{ answer9 }}</p>
+      <p *ngIf="answer10">10. {{ answer10 }}</p>
     </div>
 
-    <div *ngIf="result">
+    <div *ngIf="result" class="new-test">
       <button (click)="newQuiz()">Пройти тест ещё раз</button>
     </div>
   </form>
