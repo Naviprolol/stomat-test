@@ -123,6 +123,22 @@ input[type="radio"] {
   background-color: #28a745;
 }
 
+.new-test-button {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  padding: 10px;
+  background-color: gray;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .button:hover {
   background-color: #CC0000;
   /* Темный оттенок красного при наведении */
@@ -134,4 +150,13 @@ input[type="radio"] {
 
 .green-button:hover {
   background-color: #218838;
+}
+
+.new-test-button:hover {
+  background-color: gainsboro;
+}
+
+.results {
+  display: flex;
+  justify-content: space-between;
 }

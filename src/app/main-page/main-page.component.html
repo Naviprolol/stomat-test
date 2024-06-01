@@ -167,8 +167,15 @@
       <p *ngIf="answer10">10. {{ answer10 }}</p>
     </div>
 
-    <div *ngIf="result" class="new-test">
-      <button (click)="newQuiz()">Пройти тест ещё раз</button>
+    <div class="results">
+
+      <div *ngIf="result" class="new-test">
+        <button (click)="newQuiz()" class="new-test-button">Пройти тест ещё раз</button>
+      </div>
+
+      <div *ngIf="result" class="risk">
+        <p>Риск развития кариеса составляет {{ risk }}%</p>
+      </div>
     </div>
   </form>
 </div>
